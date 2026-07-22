@@ -42,11 +42,22 @@ A modern desktop application built with **Python** and **Tkinter** that automati
 ```text
 Automatic-File-Sorter/
 │
-├── Screenshot/
-│   └── app.png
-├── README.md
+├── .github/
+│   └── workflows/
+│       └── build.yml
+│
+├── assets/
+│   └── icons/
+│       ├── icon.ico
+│       ├── icon.icns
+│       ├── github.png
+│       ├── linkedin.png
+│       ├── gmail.png
+│       └── app_icon.png
+│
 ├── main.py
 ├── index.py
+├── README.md
 
 
 
