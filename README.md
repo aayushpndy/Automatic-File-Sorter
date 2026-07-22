@@ -11,7 +11,6 @@ A modern desktop application built with **Python** and **Tkinter** that automati
 
 ## 📸 Screenshot
 
-> Place your screenshot inside a folder named `Screenshot` (or `screenshots`) in your project.
 
 ![Automatic File Sorter](Screenshot/app.png)
 
