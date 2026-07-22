@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog
 import index
+import webbrowser
+from PIL import Image, ImageTk
 
 # ---------------------------------------------------------------------------
 # COLORS
@@ -298,7 +300,7 @@ def sortFiles():
     else:
 
         status_pill.config(
-            text="✕ Error",
+            text="✕ Error, Please Insert Correct Path",
             bg="#ffe8e8",
             fg="red"
         )
@@ -307,5 +309,63 @@ def sortFiles():
             text=result["message"]
         )
 
+# ---------------------------------------------------------
+# FOOTER
+# ---------------------------------------------------------
+
+def open_github(event=None):
+    webbrowser.open("https://github.com/aayushpndy")
+
+def open_linkedin(event=None):
+    webbrowser.open("https://www.linkedin.com/in/aayush-pandey-867350407/")
+
+def open_email(event=None):
+    webbrowser.open("mailto:aayushpandey606@gmail.com")
+
+
+footer = tk.Frame(root, bg=BG_PAGE)
+footer.pack(side="bottom", pady=(5,15))
+
+tk.Label(
+    footer,
+    text="Made by Aayush Pandey",
+    font=("Segoe UI",15),
+    fg="#666666",
+    bg=BG_PAGE
+).pack()
+
+icons = tk.Frame(footer, bg=BG_PAGE)
+icons.pack(pady=6)
+
+github_icon = ImageTk.PhotoImage(Image.open("assets/icons/github.png").resize((20,20)))
+linkedin_icon = ImageTk.PhotoImage(Image.open("assets/icons/linkedin.png").resize((23,23)))
+gmail_icon = ImageTk.PhotoImage(Image.open("assets/icons/gmail.png").resize((20,20)))
+
+github = tk.Label(
+    icons,
+    image=github_icon,
+    bg=BG_PAGE,
+    cursor="hand2"
+)
+github.pack(side="left", padx=12)
+github.bind("<Button-1>", open_github)
+
+linkedin = tk.Label(
+    icons,
+    image=linkedin_icon,
+    bg=BG_PAGE,
+    cursor="hand2"
+)
+linkedin.pack(side="left", padx=12)
+linkedin.bind("<Button-1>", open_linkedin)
+
+gmail = tk.Label(
+    icons,
+    image=gmail_icon,
+    bg=BG_PAGE,
+    cursor="hand2"
+)
+gmail.pack(side="left", padx=12)
+gmail.bind("<Button-1>", open_email)
 
 root.mainloop()
