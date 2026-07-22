@@ -337,9 +337,9 @@ tk.Label(
 icons = tk.Frame(footer, bg=BG_PAGE)
 icons.pack(pady=6)
 
-github_icon = ImageTk.PhotoImage(Image.open("assets/icons/github.png").resize((20,20)))
-linkedin_icon = ImageTk.PhotoImage(Image.open("assets/icons/linkedin.png").resize((23,23)))
-gmail_icon = ImageTk.PhotoImage(Image.open("assets/icons/gmail.png").resize((20,20)))
+github_icon = ImageTk.PhotoImage(Image.open("assets/icons/github.png").resize((30,30)))
+linkedin_icon = ImageTk.PhotoImage(Image.open("assets/icons/linkedin.png").resize((33,33)))
+gmail_icon = ImageTk.PhotoImage(Image.open("assets/icons/gmail.png").resize((30,30)))
 
 github = tk.Label(
     icons,
