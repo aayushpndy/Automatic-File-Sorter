@@ -3,6 +3,17 @@ from tkinter import filedialog
 import index
 import webbrowser
 from PIL import Image, ImageTk
+import sys
+from pathlib import Path
+
+def resource_path(relative_path):
+    """Get absolute path for PyInstaller and normal execution"""
+    try:
+        base_path = Path(sys._MEIPASS)
+    except AttributeError:
+        base_path = Path(__file__).parent
+
+    return base_path / relative_path
 
 # ---------------------------------------------------------------------------
 # COLORS
@@ -337,9 +348,17 @@ tk.Label(
 icons = tk.Frame(footer, bg=BG_PAGE)
 icons.pack(pady=6)
 
-github_icon = ImageTk.PhotoImage(Image.open("assets/icons/github.png").resize((30,30)))
-linkedin_icon = ImageTk.PhotoImage(Image.open("assets/icons/linkedin.png").resize((33,33)))
-gmail_icon = ImageTk.PhotoImage(Image.open("assets/icons/gmail.png").resize((30,30)))
+github_icon = ImageTk.PhotoImage(
+    Image.open(resource_path("assets/icons/github.png")).resize((30,30))
+)
+
+linkedin_icon = ImageTk.PhotoImage(
+    Image.open(resource_path("assets/icons/linkedin.png")).resize((33,33))
+)
+
+gmail_icon = ImageTk.PhotoImage(
+    Image.open(resource_path("assets/icons/gmail.png")).resize((30,30))
+)
 
 github = tk.Label(
     icons,
