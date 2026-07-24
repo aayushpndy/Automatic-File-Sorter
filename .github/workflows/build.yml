@@ -62,3 +62,33 @@ jobs:
         with:
           name: Automatic-File-Sorter-macOS
           path: dist/*
+  linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install pyinstaller pillow
+
+      - name: Build Linux Executable
+        run: |
+          pyinstaller --onefile --windowed --add-data "assets:assets" --icon=assets/icons/icon.png --name "Automatic File Sorter" main.py
+
+      - name: Make Executable
+        run: chmod +x "dist/Automatic File Sorter"
+
+      - name: Upload Linux Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Automatic-File-Sorter-Linux
+          path: dist/*
